@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Robot Details</title>
+</head>
+<body>
+<h1>Robot Details</h1>
+<p><strong>Model:</strong> <span th:text="${robot.model}"></span></p>
+<p><strong>Serial Number:</strong> <span th:text="${robot.serialNumber}"></span></p>
+<p><strong>Battery Level:</strong> <span th:text="${robot.batteryLevel}"></span></p>
+<p><strong>Current State:</strong> <span th:text="${robot.currentState}"></span></p>
+<a href="/robots">Back to Robots List</a>
+</body>
+</html>

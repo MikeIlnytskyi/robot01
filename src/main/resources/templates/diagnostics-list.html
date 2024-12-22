@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Diagnostics List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+  <h1>Diagnostics List</h1>
+  <a href="/diagnostics/add" class="btn btn-primary mb-3">Add New Diagnostic</a>
+  <a href="/" class="btn btn-secondary mb-3">Go Home</a>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Robot ID</th>
+      <th>Time</th>
+      <th>Status</th>
+      <th>Details</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="diagnostic : ${diagnostics}">
+      <td th:text="${diagnostic.diagnosticId}"></td>
+      <td th:text="${diagnostic.robotId}"></td>
+      <td th:text="${diagnostic.diagnosticTime}"></td>
+      <td th:text="${diagnostic.status}"></td>
+      <td th:text="${diagnostic.details}"></td>
+      <td>
+        <a th:href="@{'/diagnostics/details/' + ${diagnostic.diagnosticId}}" class="btn btn-info btn-sm">Details</a>
+        <a th:href="@{'/diagnostics/edit/' + ${diagnostic.diagnosticId}}" class="btn btn-warning btn-sm">Edit</a>
+        <a th:href="@{'/diagnostics/delete/' + ${diagnostic.diagnosticId}}" class="btn btn-danger btn-sm"
+           onclick="return confirm('Are you sure you want to delete this diagnostic?');">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

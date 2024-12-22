@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Diagnostics for Robot</title>
+</head>
+<body>
+<h1>Diagnostics for Robot</h1>
+<h2>Robot Details</h2>
+<p>ID: <span th:text="${robot.robotId}"></span></p>
+<p>Model: <span th:text="${robot.model}"></span></p>
+<p>Serial Number: <span th:text="${robot.serialNumber}"></span></p>
+
+<h2>Diagnostics</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="diagnostic : ${diagnostics}">
+        <td th:text="${diagnostic.diagnosticId}"></td>
+        <td th:text="${diagnostic.diagnosticTime}"></td>
+        <td th:text="${diagnostic.status}"></td>
+        <td th:text="${diagnostic.details}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
